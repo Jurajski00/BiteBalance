@@ -1,9 +1,8 @@
 <?php
-
-$servername = "localhost";
-$dbname = "fitness_tracker";
-$username = "root";
-$password = "";
+$servername = 'localhost';
+$dbname = 'fitness_tracker';
+$username = 'root';
+$password = '';
 
 $dsn = "mysql:host=$servername;dbname=$dbname";
 
@@ -14,7 +13,7 @@ $options = [
 ];
 
 try {
-    $conn = new PDO($dsn, $username, $password, $options);
+    $pdo = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
     echo "Connection failed" . $e->getMessage();
 }
