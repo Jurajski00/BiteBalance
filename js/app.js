@@ -1,3 +1,5 @@
+// ---USER REGISTRATION---
+
 document.querySelector('#formRegister').addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -31,7 +33,7 @@ document.querySelector('#formRegister').addEventListener('submit', (e) => {
     .then(data => {
         if (data.success === true) {
             document.querySelector('#formRegister').reset();
-            alert(data.message);
+            // alert(data.message);
         } else {
             alert(data.message);
         }

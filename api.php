@@ -6,7 +6,7 @@ require 'db.php';
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
 switch($action) {
-    case 'registerUser':
+    case 'registerUser':    // --- USER REGISTRATION ---
         $name = isset($_POST['registerName']) ? trim($_POST['registerName']) : '';
         $surname = isset($_POST['registerSurname']) ? trim($_POST['registerSurname']) : '';
         $email = isset($_POST['registerEmail']) ? trim($_POST['registerEmail']) : '';
@@ -16,13 +16,13 @@ switch($action) {
         $height = isset($_POST['registerHeight']) ? intval($_POST['registerHeight']) : '';
         $age = isset($_POST['registerAge']) ? intval($_POST['registerAge']) : '';
 
-        if($age > 200) { //test function
+        if($age > 200) {                                //test function
             echo json_encode([
                 'success' => false,
                 'message' => "You're not that old :D"
             ]);
             exit;
-        }
+        }                                               // add more later
 
         $sql = "INSERT INTO users (name, surname, email, username, password, weight, height, age)
         VALUES (:name, :surname, :email, :username, :password, :weight, :height, :age)";

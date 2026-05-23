@@ -64,8 +64,14 @@
                         <input type="password" id="password" class="form-control" required>
                     </div>
 
-                    <div class="col-12 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success px-4">Register</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="button" onclick="document.location = 'index.php'" class="btn btn-secondary px-4">Go back</button>
+                        </div>
+
+                        <div class="col-6 d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success px-4">Register</button>
+                        </div>
                     </div>
 
                 </form>
