@@ -81,3 +81,34 @@ if (formLogin) {
         });
     });
 }
+
+// ---USER LOGOUT---
+
+const buttonLogoutUser = document.querySelector('#buttonLogoutUser');
+if (buttonLogoutUser) {
+    buttonLogoutUser.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const logout = new FormData();
+        logout.append('action', 'logoutUser');
+
+        fetch('api.php', {
+            method: 'POST',
+            body: logout
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            if (data.success === true) {
+                alert(data.message);
+                window.location.href = 'welcome.php';
+            } else {
+                alert('Something went wrong with logout');
+            }
+        })
+        .catch(error => {
+            console.error("Critical error:", error);
+        });
+    });
+}

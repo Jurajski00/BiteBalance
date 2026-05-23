@@ -67,6 +67,15 @@ switch($action) {
         }
         break;
         
+    case 'logoutUser':
+        session_unset();
+        session_destroy();
+        echo json_encode([
+            'success' => true,
+            'message' => 'User logged out'
+        ]);
+        break;
+
     default:
         echo json_encode([
             'success' => false,

@@ -37,7 +37,7 @@
 
                     <div class="row">
                         <div class="col-6">
-                            <button type="button" onclick="document.location = 'index.php'" class="btn btn-secondary px-4">Go back</button>
+                            <a type="button" href="welcome.php" class="btn btn-secondary px-4">Go back</a>
                         </div>
 
                         <div class="col-6 d-flex justify-content-end">
