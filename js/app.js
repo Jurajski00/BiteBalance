@@ -34,7 +34,7 @@ if (formRegister) {
         })
         .then(data => {
             if (data.success === true) {
-                document.querySelector('#formRegister').reset();
+                window.location.href = 'index.php';
                 // alert(data.message);
             } else {
                 alert(data.message);
@@ -70,8 +70,8 @@ if (formLogin) {
         })
         .then(data => {
             if (data.success === true) {
-                document.querySelector('#formLogin').reset();
-                alert(data.message);
+                // alert(data.message);
+                window.location.href = 'index.php';
             } else {
                 alert(data.message);
             }
