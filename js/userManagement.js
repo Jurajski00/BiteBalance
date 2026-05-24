@@ -2,7 +2,7 @@
 
 const formRegister = document.querySelector('#formRegister');
 if (formRegister) {
-    formRegister.addEventListener('submit', (e) => {
+    formRegister.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const name = document.querySelector('#name').value;
@@ -25,24 +25,37 @@ if (formRegister) {
         register.append('registerHeight', height);
         register.append('registerAge', age);
 
-        fetch('userApi.php', {
-            method: 'POST',
-            body: register
-        })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
+        try {
+            const response = await fetch('userApi.php', { method: 'POST', body: register });
+            const data = await response.json();
+
             if (data.success === true) {
                 window.location.href = 'index.php';
-                // alert(data.message);
             } else {
                 alert(data.message);
             }
-        })
-        .catch(error => {
-            console.error("Critical error:", error);
-        });
+        } catch (error) {
+            console.error('Critical error:', error);
+        }
+
+        // fetch('userApi.php', {
+        //     method: 'POST',
+        //     body: register
+        // })
+        // .then(response => {
+        //     return response.json();
+        // })
+        // .then(data => {
+        //     if (data.success === true) {
+        //         window.location.href = 'index.php';
+        //         // alert(data.message);
+        //     } else {
+        //         alert(data.message);
+        //     }
+        // })
+        // .catch(error => {
+        //     console.error("Critical error:", error);
+        // });
     });
 }
 
@@ -50,7 +63,7 @@ if (formRegister) {
 
 const formLogin = document.querySelector('#formLogin');
 if (formLogin) {
-        formLogin.addEventListener('submit', (e) => {
+        formLogin.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const username = document.querySelector('#username').value;
@@ -61,24 +74,37 @@ if (formLogin) {
         login.append('loginUsername', username);
         login.append('loginPassword', password);
 
-        fetch('userApi.php', {
-            method: 'POST',
-            body: login
-        })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
+        try {
+            const response = await fetch('userApi.php', { method: 'POST', body: login });
+            const data = await response.json();
+
             if (data.success === true) {
-                // alert(data.message);
                 window.location.href = 'index.php';
             } else {
                 alert(data.message);
             }
-        })
-        .catch(error => {
-            console.error("Critical error:", error)
-        });
+        } catch (error) {
+            console.error('Critical error:', error);
+        }
+
+        // fetch('userApi.php', {
+        //     method: 'POST',
+        //     body: login
+        // })
+        // .then(response => {
+        //     return response.json();
+        // })
+        // .then(data => {
+        //     if (data.success === true) {
+        //         // alert(data.message);
+        //         window.location.href = 'index.php';
+        //     } else {
+        //         alert(data.message);
+        //     }
+        // })
+        // .catch(error => {
+        //     console.error("Critical error:", error)
+        // });
     });
 }
 
@@ -86,29 +112,42 @@ if (formLogin) {
 
 const buttonLogoutUser = document.querySelector('#buttonLogoutUser');
 if (buttonLogoutUser) {
-    buttonLogoutUser.addEventListener('click', (e) => {
+    buttonLogoutUser.addEventListener('click', async (e) => {
         e.preventDefault();
 
         const logout = new FormData();
         logout.append('action', 'logoutUser');
 
-        fetch('userApi.php', {
-            method: 'POST',
-            body: logout
-        })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
+        try {
+            const response = await fetch('userApi.php', { method: 'POST', body: logout });
+            const data = await response.json();
+
             if (data.success === true) {
-                alert(data.message);
                 window.location.href = 'welcome.php';
             } else {
                 alert('Something went wrong with logout');
             }
-        })
-        .catch(error => {
-            console.error("Critical error:", error);
-        });
+        } catch (error) {
+            console.error('Critical error:', error);
+        }
+
+        // fetch('userApi.php', {
+        //     method: 'POST',
+        //     body: logout
+        // })
+        // .then(response => {
+        //     return response.json();
+        // })
+        // .then(data => {
+        //     if (data.success === true) {
+        //         alert(data.message);
+        //         window.location.href = 'welcome.php';
+        //     } else {
+        //         alert('Something went wrong with logout');
+        //     }
+        // })
+        // .catch(error => {
+        //     console.error("Critical error:", error);
+        // });
     });
 }
