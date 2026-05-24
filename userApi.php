@@ -42,7 +42,7 @@ switch($action) {
             'success' => true,
             'message' => "User {$name} added successfully"
         ]);
-        break;
+        exit;
 
     case 'loginUser':
         $username = isset($_POST['loginUsername']) ? trim($_POST['loginUsername']) : '';
@@ -53,19 +53,20 @@ switch($action) {
         ]);
         $user = $stmt->fetch();
 
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['id_user'] = $user['id'];
-            echo json_encode([
-                'success' => true,
-                'message' => "User {$username} logged in successfully"
-            ]);
-        } else {
+        if (!$user || !password_verify($password, $user['password'])) {
             echo json_encode([
                 'success' => false,
                 'message' => 'Login failed'
-            ]);
+                ]);
+            exit;
         }
-        break;
+
+        $_SESSION['id_user'] = $user['id'];
+        echo json_encode([
+            'success' => true,
+            'message' => "User {$username} logged in successfully"
+        ]);
+        exit;
         
     case 'logoutUser':
         session_unset();
@@ -74,7 +75,7 @@ switch($action) {
             'success' => true,
             'message' => 'User logged out'
         ]);
-        break;
+        exit;
 
     default:
         echo json_encode([

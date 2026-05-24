@@ -25,7 +25,7 @@ if (formRegister) {
         register.append('registerHeight', height);
         register.append('registerAge', age);
 
-        fetch('api.php', {
+        fetch('userApi.php', {
             method: 'POST',
             body: register
         })
@@ -61,7 +61,7 @@ if (formLogin) {
         login.append('loginUsername', username);
         login.append('loginPassword', password);
 
-        fetch('api.php', {
+        fetch('userApi.php', {
             method: 'POST',
             body: login
         })
@@ -92,7 +92,7 @@ if (buttonLogoutUser) {
         const logout = new FormData();
         logout.append('action', 'logoutUser');
 
-        fetch('api.php', {
+        fetch('userApi.php', {
             method: 'POST',
             body: logout
         })
