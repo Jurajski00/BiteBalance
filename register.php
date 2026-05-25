@@ -13,78 +13,78 @@
     <title>Diet tracker</title>
 </head>
 <body class="d-flex justify-content-center align-items-center min-vh-100">
-    <div class="container">
-        <div class="row mb-3">
-            <div class="col-12">
-                <h1 class="fw-bold text-success text-center">Register</h1>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-12">
-
-                <form id="formRegister" class="p-4 bg-white rounded-5 shadow-lg">
-
-                    <div class="row d-flex mb-3">
-                        <div class="col-6">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" class="form-control" required>
-                         </div>
-
-                        <div class="col-6">
-                            <label for="surname" class="form-label">Surname</label>
-                            <input type="text" id="surname" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <div class="row d-flex mb-3">
-                        <div class="col-4">
-                            <label for="weight" class="form-label">Weight</label>
-                            <input type="number" id="weight" class="form-control" required>
-                        </div>
-                        
-                        <div class="col-4">
-                            <label for="height" class="form-label">Height</label>
-                            <input type="number" id="height" class="form-control" required>
-                        </div>
-
-                        <div class="col-4">
-                            <label for="age" class="form-label">Age</label>
-                            <input type="number" id="age" class="form-control" required>
-                        </div>
-                    </div>
-
-                    <div class="col-12 mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" id="username" class="form-control" required>
-                    </div>
-
-                    <div class="col-12 mb-3">
-                        <label for="email" class="form-label">E-mail</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-
-                    <div class="col-12 mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" id="password" class="form-control" required>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6">
-                            <a type="button" href="welcome.php" class="btn btn-secondary px-4">Go back</a>
-                        </div>
-
-                        <div class="col-6 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-success px-4">Register</button>
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-12">
+            <h1 class="fw-bold text-success text-center">Register</h1>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="js/userManagement.js"></script>
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+
+            <form id="formRegister" class="p-4 bg-white rounded-5 shadow-lg">
+
+                <div class="row d-flex mb-3">
+                    <div class="col-6">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                    <div class="col-6">
+                        <label for="surname" class="form-label">Surname</label>
+                        <input type="text" id="surname" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="row d-flex mb-3">
+                    <div class="col-4">
+                        <label for="weight" class="form-label">Weight</label>
+                        <input type="number" id="weight" class="form-control" required>
+                    </div>
+                    
+                    <div class="col-4">
+                        <label for="height" class="form-label">Height</label>
+                        <input type="number" id="height" class="form-control" required>
+                    </div>
+
+                    <div class="col-4">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" id="age" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" class="form-control" required>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+
+                <div class="col-12 mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <a type="button" href="welcome.php" class="btn btn-secondary px-4">Go back</a>
+                    </div>
+
+                    <div class="col-6 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-success px-4">Register</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="js/userManagement.js"></script>
 </body>
 </html>

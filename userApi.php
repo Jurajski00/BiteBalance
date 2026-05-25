@@ -82,5 +82,5 @@ switch($action) {
             'success' => false,
             'message' => 'Unkown api action'
         ]);
-        break;
+        exit;
 }
