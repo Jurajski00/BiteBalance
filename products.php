@@ -46,6 +46,20 @@
             </div>
         </div>
 
+        <div class="row g-3 mb-4">
+            <div class="col-md-8">
+                <div class="input-group shadow-sm rounded">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
+                    <input type="text" id="searchBar" class="form-control border-start-0" placeholder="Search by product name...">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <select id="filterType" class="form-select shadow-sm rounded">
+                    <option value="">All Categories</option>
+                    </select>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12">
                 <div class="table-responsive bg-white shadow-sm rounded">
@@ -71,7 +85,6 @@
         </div>
     </div>
 </main>
-
 
 <<!--  PRODUCT MODAL -->
 <div class="modal fade" id="productModal" tabindex="-1">

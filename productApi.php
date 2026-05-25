@@ -30,14 +30,30 @@ switch($action) {
 
     case 'getProducts':
         try {
+            $search = trim($_GET['search'] ?? '');
+            $type_id = intval($_GET['type_id'] ?? 0);
+
             $sql = "SELECT p.*, t.name AS type_name 
                     FROM products p
                     LEFT JOIN types t ON p.id_type = t.id
-                    WHERE p.id_user = :id_user AND p.archived = 0
-                    ORDER BY p.id DESC";
+                    WHERE p.id_user = :id_user AND p.archived = 0";
+            
+            $params = [':id_user' => $id_user];
+
+            if ($search !== '') {
+                $sql .= " AND p.name LIKE :search";
+                $params[':search'] = $search . '%';
+            }
+
+            if ($type_id > 0) {
+                $sql .= " AND p.id_type = :type_id";
+                $params[':type_id'] = $type_id;
+            }
+
+            $sql .= " ORDER BY p.id DESC";
             
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([':id_user' => $id_user]);
+            $stmt->execute($params);
             $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             echo json_encode([

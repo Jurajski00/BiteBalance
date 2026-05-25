@@ -41,21 +41,25 @@ if (buttonModal) {
 
 // ---LOAD TYPES---
 async function loadTypes() {
-    const typeSelect = document.getElementById('productType');
-    if (!typeSelect) return;
+    const modalTypeSelect = document.getElementById('productType');
+    const filterTypeSelect = document.getElementById('filterType'); // New global filter
 
     try {
         const response = await fetch('productApi.php?action=getTypes');
         const result = await response.json();
 
         if (result.success) {
-            let html = '<option value="" disabled selected>-- Select Category --</option>';
+            let modalHtml = '<option value="" disabled selected>-- Select Category --</option>';
+            let filterHtml = '<option value="">All Categories</option>';
             
             result.data.forEach(type => {
-                html += `<option value="${type.id}">${type.name}</option>`;
+                const option = `<option value="${type.id}">${type.name}</option>`;
+                modalHtml += option;
+                filterHtml += option;
             });
 
-            typeSelect.innerHTML = html;
+            if (modalTypeSelect) modalTypeSelect.innerHTML = modalHtml;
+            if (filterTypeSelect) filterTypeSelect.innerHTML = filterHtml;
         } else {
             console.error('API Error:', result.message);
         }
@@ -64,21 +68,31 @@ async function loadTypes() {
     }
 }
 
+
+// ---LOAD PRODUCTS WITH FILTERS---
 let currentProducts = [];
-// ---LOAD PRODUCTS---
 async function loadProducts() {
     const tbody = document.getElementById('productsTableBody');
     if (!tbody) return;
 
+    const searchQuery = document.getElementById('searchBar')?.value || '';
+    const typeFilter = document.getElementById('filterType')?.value || '';
+
     try {
-        const response = await fetch('productApi.php?action=getProducts');
+        const params = new URLSearchParams({
+            action: 'getProducts',
+            search: searchQuery,
+            type_id: typeFilter
+        });
+
+        const response = await fetch(`productApi.php?${params.toString()}`);
         const result = await response.json();
 
         if (result.success) {
             currentProducts = result.data;
             
             if (currentProducts.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted py-4">No products found. Add your first item!</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="6" class="text-center text-muted py-4">No matching products found.</td></tr>`;
                 return;
             }
 
@@ -199,11 +213,28 @@ document.getElementById('btnSaveProduct').addEventListener('click', async () => 
     }
 });
 
-// ---ON PAGE LOAD---
+// ---ON PAGE LOAD & FILTER WATCHERS---
 document.addEventListener('DOMContentLoaded', () => {
     loadTypes(); 
     
     if (typeof loadProducts === 'function') {
         loadProducts();
+    }
+
+    const searchBar = document.getElementById('searchBar');
+    const filterType = document.getElementById('filterType');
+
+    if (searchBar) {
+        searchBar.addEventListener('input', () => {
+            setTimeout(() => {
+                loadProducts();
+            }, 300);
+        });
+    }
+
+    if (filterType) {
+        filterType.addEventListener('change', () => {
+            loadProducts();
+        });
     }
 });
