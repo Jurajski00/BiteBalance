@@ -18,7 +18,7 @@
 <header class="container-fluid border-bottom px-4 py-2">
     <div class="row align-items-center">
         <div class="col-auto">
-            <a class="navbar-brand fs-3 fw-bold text-success" href="#">🍎 Diet tracker</a>
+            <a class="navbar-brand fs-3 fw-bold text-success" href="index.php">🍎 Diet tracker</a>
         </div>
 
         <div class="col-auto ms-auto">
