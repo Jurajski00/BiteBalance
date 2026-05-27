@@ -130,7 +130,3 @@ BiteBalance is built with security as a first-class concern:
 This project is licensed under the [MIT License](LICENSE).
 
 ---
-
-<div align="center">
-  Built with ❤️ using PHP, MySQL & Vanilla JavaScript
-</div>
