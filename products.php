@@ -11,14 +11,14 @@
     <link rel="icon" href="Data:,">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <title>Diet tracker</title>
+    <title>BiteBalance - Products</title>
 </head>
 <body>
 
 <header class="container-fluid border-bottom px-4 py-2">
     <div class="row align-items-center">
         <div class="col-auto">
-            <a class="navbar-brand fs-3 fw-bold text-success" href="index.php">🍎 Diet tracker</a>
+            <a class="navbar-brand fs-3 fw-bold text-success" href="index.php">🍎 BiteBalance</a>
         </div>
 
         <div class="col-auto ms-auto">
