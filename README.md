@@ -51,15 +51,29 @@
 
 ```
 bitebalance/
-├── admin.php               # Secured Administrator Management Control Panel
-├── account.php             # User Account Dashboard & Metrics Form
-├── userApi.php             # Asynchronous JSON API router
-├── auth.php                # Authentication state and global access verification
-├── db.php                  # PDO database connection initialization
-├── index.php               # Main interactive user dashboard
 ├── js/
-│   └── userManagement.js   # Async form controllers, listeners & modal mappings
-└── README.md               # Repository documentation
+│   ├── dashboardManagement.js   # Async UI handlers for the main dashboard
+│   ├── dishManagement.js        # Async UI handlers for meal and dish planning
+│   ├── productManagement.js     # Async UI handlers for managing base food ingredients
+│   └── userManagement.js        # Async form controllers, listeners & modal mappings
+├── .gitignore                   # Git exclusion configurations
+├── account.php                  # User Account Dashboard & Metrics Form
+├── admin.php                    # Secured Administrator Management Control Panel
+├── auth.php                     # Authentication state and global access verification
+├── dashboardApi.php             # Async JSON API router for dashboard metrics
+├── db.php                       # PDO database connection initialization
+├── dishApi.php                  # Async JSON API router for dish/meal operations
+├── dishes.php                   # View/management interface for compound dishes
+├── fitness_tracker.sql          # Primary relational database schema dump
+├── index.php                    # Application entry point / routing landing page
+├── login.php                    # User authentication sign-in portal
+├── productApi.php               # Async JSON API router for base food products
+├── products.php                 # View/management interface for ingredients
+├── README.md                    # Repository documentation
+├── register.php                 # New account registration page
+├── test-session.php             # Development utility for auditing active session states
+├── userApi.php                  # Async JSON API router for profile/user administration
+└── welcome.php                  # Onboarding / splash page for unauthenticated users
 ```
 
 ---
@@ -128,5 +142,3 @@ BiteBalance is built with security as a first-class concern:
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
